@@ -186,6 +186,7 @@ int SelectNextDegree(const std::array<double, kMaxLacDegree + 1>& q_values,
   return ArgMaxDegree(q_values, min_degree, max_degree);
 }
 
+// The TrimDeque function trims a deque of double values to ensure that its size does not exceed a specified window size. It takes a reference to a std::deque<double> and a reference to a double sum. The function calculates the maximum allowed window size using GetAdaptiveLacWindowSize() and removes elements from the front of the deque while its size exceeds the window size. As elements are removed, their values are subtracted from the sum, maintaining an accurate total of the remaining elements in the deque. This function is useful for maintaining a sliding window of recent observations for statistical calculations in the LAC algorithm.
 void TrimDeque(std::deque<double>& dq, double& sum) {
   const int window = std::max(1, adgMod::GetAdaptiveLacWindowSize());
   while (dq.size() > static_cast<size_t>(window)) {
