@@ -1,6 +1,6 @@
 
 # 🦃 Wild Turkey: Artifact for VLDB 2026 Submission
-
+ 
 This repository provides the code, scripts, and configurations necessary to reproduce the experimental results of our **VLDB 2026** submission:
 
 ## ✨ Rethinking Learned Index and LSM-tree Integration ✨
@@ -155,8 +155,8 @@ The benchmark output includes internal timers for detailed profiling. Below are 
 | **17** | Model prediction / range calculation |
 | **18** | Load predicted chunk + binary search to locate key |
 
----
- 
+--- 
+
 ## 📌 Notes
 
 * ✅ Benchmarks match configurations in Section V of the paper.
