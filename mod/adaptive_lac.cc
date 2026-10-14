@@ -109,6 +109,7 @@ double Normalize(double value, double min_val, double max_val) {
   return std::max(0.0, std::min(1.0, scaled));
 }
 
+// The ClassifyIops function classifies the normalized IOPS (Input/Output Operations Per Second) value into one of three states: high, medium, or low. It takes a double value representing the normalized IOPS and compares it against predefined thresholds. If the normalized IOPS is greater than or equal to 0.66, it returns the kHigh state. If it is greater than or equal to 0.33 but less than 0.66, it returns the kMedium state. Otherwise, it returns the kLow state. This classification helps in determining the current performance state of the system based on IOPS measurements.
 adgMod::IopsState ClassifyIops(double normalized_ops) {
   if (normalized_ops >= 0.66) {
     return adgMod::IopsState::kHigh;
