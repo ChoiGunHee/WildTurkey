@@ -257,6 +257,7 @@ void SetAdaptiveLacWindowSize(int window) {
   g_history_window.store(clamped, std::memory_order_relaxed);
 }
 
+// The GetAdaptiveLac function provides access to a singleton instance of the AdaptiveLAC class. It uses a static local variable to ensure that only one instance of AdaptiveLAC is created and shared across the application. The function returns a reference to this instance, allowing other parts of the code to interact with the AdaptiveLAC functionality without needing to create multiple instances. This design pattern is useful for managing shared state and resources in a controlled manner.
 AdaptiveLAC::AdaptiveLAC() {
   for (size_t level = 0; level < states_.size(); ++level) {
     State& st = states_[level];
