@@ -175,6 +175,7 @@ double MaxQValue(const std::array<double, kMaxLacDegree + 1>& q_values,
   return best;
 }
 
+// The SelectNextDegree function selects the next degree for the LAC algorithm based on the current Q-values and an epsilon-greedy strategy. It takes an array of Q-values, a minimum and maximum degree, and a reference to the current epsilon value. The function generates a random number and compares it to the current epsilon value (obtained from NextEpsilonGreedy). If the random number is less than the current epsilon, it selects a random degree within the specified range (exploration). Otherwise, it selects the degree with the highest Q-value (exploitation) using ArgMaxDegree. The selected degree is returned as the next degree to be used in the LAC algorithm.
 int SelectNextDegree(const std::array<double, kMaxLacDegree + 1>& q_values,
                      int min_degree, int max_degree, double& epsilon) {
   std::uniform_real_distribution<double> dist(0.0, 1.0);
