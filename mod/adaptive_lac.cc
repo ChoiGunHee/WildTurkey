@@ -40,6 +40,7 @@ struct PreferredRange {
   int max_deg;
 };
 
+// The kPreferredDegreeRanges array defines the preferred degree ranges for each level in the LAC algorithm. It is a constexpr array of PreferredRange structs, with one entry for each level (from L0 to L6). Each entry specifies the minimum and maximum preferred degrees for that level, allowing the Q-learning algorithm to bias its degree selection towards these ranges during the learning process.
 std::string JoinPath(const std::string& base, const std::string& leaf) {
   if (base.empty()) return leaf;
   if (base.back() == '/') return base + leaf;
