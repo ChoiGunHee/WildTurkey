@@ -155,7 +155,7 @@ The benchmark output includes internal timers for detailed profiling. Below are 
 | **17** | Model prediction / range calculation |
 | **18** | Load predicted chunk + binary search to locate key |
 
----
+--- 
 
 ## 📌 Notes
 
