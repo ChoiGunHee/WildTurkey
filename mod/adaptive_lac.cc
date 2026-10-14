@@ -291,6 +291,7 @@ uint64_t AdaptiveLAC::BaseSizeForLevel(int level, int lac_degree) const {
   return static_cast<uint64_t>(size);
 }
 
+// The MinDegreeForLevel function returns the minimum allowed LAC degree for a given level. It takes an integer level as a parameter and clamps it to ensure it is within the valid range of levels (0 to kNumLevels - 1). The function retrieves the corresponding minimum degree from the kMinDegreePerLevel array and ensures that it is at least kMinLacDegree. This function is used to enforce constraints on the LAC degree based on the level, ensuring that the degree remains within acceptable bounds for the algorithm's operation.
 int AdaptiveLAC::MinDegreeForLevel(int level) {
   const int idx =
       std::max(0, std::min(level, leveldb::config::kNumLevels - 1));
