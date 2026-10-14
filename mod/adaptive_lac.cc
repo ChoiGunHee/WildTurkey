@@ -120,6 +120,7 @@ adgMod::IopsState ClassifyIops(double normalized_ops) {
   return adgMod::IopsState::kLow;
 }
 
+// The SmallDegreeBias function calculates a bias value for small degrees based on the current level and degree. It is designed to favor smaller degrees (<=3) for lower levels (0 and 1) while still allowing the full range of degrees to be valid. If the level is 0 or 1 and the degree is less than or equal to 3, it returns a positive bias (kSmallDegreeBonus). For degrees greater than 3, it calculates a negative bias that scales linearly with the degree, ensuring that the bias decreases as the degree increases. For levels greater than 1, it returns a bias of 0. This function helps guide the Q-learning algorithm towards preferred degree ranges based on the current level.
 double SmallDegreeBias(int level, int degree) {
   // Bias levels 0/1 toward very small degrees (<=3), but keep full range valid.
   if (level <= 1) {
