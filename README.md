@@ -156,7 +156,7 @@ The benchmark output includes internal timers for detailed profiling. Below are 
 | **18** | Load predicted chunk + binary search to locate key |
 
 ---
-
+ 
 ## 📌 Notes
 
 * ✅ Benchmarks match configurations in Section V of the paper.
