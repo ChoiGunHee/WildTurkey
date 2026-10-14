@@ -34,6 +34,7 @@ constexpr double kSmallDegreeBonus = 0.6;
 constexpr double kLevelRewardWeights[leveldb::config::kNumLevels] = {
     0.6, 0.8, 0.9, 1.1, 1.3, 1.5, 1.7};
 
+// The PreferredRange struct defines a range of preferred degrees for each level in the LAC algorithm. It contains two integer members, min_deg and max_deg, which represent the minimum and maximum preferred degrees, respectively. This struct is used to bias the selection of degrees during the Q-learning process, encouraging the algorithm to favor certain degree ranges that are considered optimal for specific levels.
 struct PreferredRange {
   int min_deg;
   int max_deg;
