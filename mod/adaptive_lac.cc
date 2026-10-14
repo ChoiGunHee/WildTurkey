@@ -71,6 +71,7 @@ constexpr std::array<PreferredRange, leveldb::config::kNumLevels>
         {1, 10},   // L6
     }};
 
+// The StateIndex function converts an IopsState enum value to its corresponding integer index. It uses static_cast to convert the IopsState value (which is of type uint8_t) to an int, allowing it to be used as an index in arrays or other data structures that require integer indices. This function is useful for accessing the appropriate row in the Q-values table based on the current IOPS state.
 int StateIndex(adgMod::IopsState state) {
   return static_cast<int>(state);
 }
