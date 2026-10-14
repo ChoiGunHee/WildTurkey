@@ -194,7 +194,7 @@ void TrimDeque(std::deque<double>& dq, double& sum) {
     dq.pop_front();
   }
 }
-
+// The AppendReportRow function appends a row of data to a report CSV file, logging various metrics related to the LAC algorithm's performance. It takes parameters such as the level, IOPS states before and after the observation, old and new degrees, write amplification (wa), operations (ops), their respective rates, score, level weight, and target bytes. The function uses a mutex to ensure thread safety when writing to the file. It initializes the report file with headers if it hasn't been done yet and formats the output with fixed precision. The current timestamp is also included in the report row. This function is useful for tracking the performance and decisions made by the LAC algorithm over time for analysis and debugging purposes.
 void AppendReportRow(int level, IopsState from_state, IopsState to_state,
                      int old_deg, int new_deg, double wa, double ops,
                      double wa_rate, double ops_rate, double score,
