@@ -251,6 +251,7 @@ int GetAdaptiveLacWindowSize() {
   return std::max(1, g_history_window.load(std::memory_order_relaxed));
 }
 
+// The SetAdaptiveLacWindowSize function sets the window size for the Adaptive LAC algorithm. It takes an integer parameter (window) representing the desired window size. The function clamps the input value to ensure it is at least 1, preventing invalid or empty windows. It then stores the clamped value in the atomic integer g_history_window using relaxed memory order, allowing for thread-safe updates to the window size. This function allows users to configure the history window size used in statistical calculations for the LAC algorithm.
 void SetAdaptiveLacWindowSize(int window) {
   const int clamped = std::max(1, window);
   g_history_window.store(clamped, std::memory_order_relaxed);
