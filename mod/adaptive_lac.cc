@@ -298,6 +298,7 @@ int AdaptiveLAC::MinDegreeForLevel(int level) {
   return std::max(kMinLacDegree, adgMod::kMinDegreePerLevel[idx]);
 }
 
+// The MaxDegreeForLevel function returns the maximum allowed LAC degree for a given level. It takes an integer level as a parameter and simply returns the constant kMaxLacDegree, which represents the upper limit for the LAC degree across all levels. This function is used to enforce constraints on the LAC degree, ensuring that it does not exceed the defined maximum value during the algorithm's operation.
 int AdaptiveLAC::MaxDegreeForLevel(int level) {
   return kMaxLacDegree;
 }
