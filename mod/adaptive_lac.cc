@@ -138,6 +138,7 @@ std::mt19937& GetRng() {
   return rng;
 }
 
+// The NextEpsilonGreedy function implements an epsilon-greedy strategy for exploration in reinforcement learning. It takes a reference to the current epsilon value, which represents the probability of choosing a random action (exploration) versus the best-known action (exploitation). The function returns the current epsilon value and then decays it by a fixed amount (kEpsilonDecay), ensuring that it does not go below a minimum threshold (kEpsilonMin). This allows the algorithm to gradually shift from exploration to exploitation as it learns more about the environment.
 double NextEpsilonGreedy(double& epsilon) {
   const double current = epsilon;
   epsilon = std::max(kEpsilonMin, epsilon - kEpsilonDecay);
