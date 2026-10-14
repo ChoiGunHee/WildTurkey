@@ -29,6 +29,8 @@ constexpr double kRangeEps = 1e-9;
 constexpr double kPreferenceWeight = 0.4;
 constexpr double kSmallDegreeBonus = 0.6;
 
+
+//  The weights for each level are used to bias the reward function for the Q-learning algorithm. Higher levels (which typically have larger files and more compaction work) are given higher weights, encouraging the algorithm to prioritize optimizing compactions at those levels. The weights are defined in a constexpr array, allowing for compile-time evaluation and optimization.
 constexpr double kLevelRewardWeights[leveldb::config::kNumLevels] = {
     0.6, 0.8, 0.9, 1.1, 1.3, 1.5, 1.7};
 
