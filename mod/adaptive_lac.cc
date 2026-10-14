@@ -99,6 +99,7 @@ void UpdateRange(double value, double& min_val, double& max_val) {
   }
 }
 
+// The Normalize function normalizes a given value within a specified range defined by min_val and max_val. It checks if the min_val and max_val are finite and if the range (max_val - min_val) is greater than a small epsilon (kRangeEps). If the conditions are not met, it returns 0.5 as a default normalized value. Otherwise, it scales the input value to a range between 0.0 and 1.0 based on its position within the specified range, ensuring that the result is clamped between 0.0 and 1.0. This function is useful for converting raw measurements into a standardized format for further processing or analysis.
 double Normalize(double value, double min_val, double max_val) {
   if (!std::isfinite(min_val) || !std::isfinite(max_val) ||
       (max_val - min_val) < kRangeEps) {
