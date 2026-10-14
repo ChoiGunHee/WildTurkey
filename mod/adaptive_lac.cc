@@ -281,6 +281,7 @@ AdaptiveLAC::AdaptiveLAC() {
   }
 }
 
+// The BaseSizeForLevel function calculates the base size in bytes for a given level and LAC degree. It takes an integer level and an integer lac_degree as parameters. The function first determines the effective degree to use, which is either the provided lac_degree (if greater than 0) or the initial LAC degree for the specified level. It then calculates an exponent based on the level, ensuring it is between 1 and 6. The base size is computed using a formula that multiplies a constant base unit (kBaseUnitBytes) by the degree raised to the power of the exponent. Finally, the function returns the calculated size as a uint64_t value, representing the base size in bytes for the specified level and degree.
 uint64_t AdaptiveLAC::BaseSizeForLevel(int level, int lac_degree) const {
   const int degree = lac_degree > 0 ? lac_degree : InitialLacDegree(level);
   const int exp = std::max(1, std::min(level + 1, 6));
