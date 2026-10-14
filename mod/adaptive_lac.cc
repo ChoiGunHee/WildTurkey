@@ -89,6 +89,7 @@ const char* ToString(adgMod::IopsState state) {
   return "unknown";
 }
 
+// The UpdateRange function updates the minimum and maximum values of a range based on a new input value. It takes a double value and references to min_val and max_val. If min_val is not finite or the new value is less than min_val, it updates min_val to the new value. Similarly, if max_val is not finite or the new value is greater than max_val, it updates max_val to the new value. This function is useful for tracking the range of observed values over time.
 void UpdateRange(double value, double& min_val, double& max_val) {
   if (!std::isfinite(min_val) || value < min_val) {
     min_val = value;
