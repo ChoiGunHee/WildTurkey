@@ -47,6 +47,7 @@ std::string JoinPath(const std::string& base, const std::string& leaf) {
   return base + "/" + leaf;
 }
 
+// The ReportPath function determines the file path for the report.csv file used to log the results of the LAC algorithm. It checks for an environment variable "WT_LOG_DIR" to specify a custom log directory. If the environment variable is set and not empty, it joins that directory with "report.csv" to create the full path. If the environment variable is not set or empty, it defaults to "report.csv" in the current working directory. The function returns a reference to a static string containing the computed path, ensuring that the path is only computed once and reused on subsequent calls.
 const std::string& ReportPath() {
   static const std::string path = [] {
     const char* log_dir = std::getenv("WT_LOG_DIR");
