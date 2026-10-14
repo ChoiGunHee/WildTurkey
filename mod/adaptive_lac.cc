@@ -76,6 +76,7 @@ int StateIndex(adgMod::IopsState state) {
   return static_cast<int>(state);
 }
 
+// The ToString function converts an IopsState enum value to its corresponding string representation. It uses a switch statement to match the IopsState value to its string equivalent ("high", "medium", or "low"). If the state does not match any of the defined cases, it returns "unknown". This function is useful for logging or displaying the current IOPS state in a human-readable format.
 const char* ToString(adgMod::IopsState state) {
   switch (state) {
     case adgMod::IopsState::kHigh:
