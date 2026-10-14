@@ -132,6 +132,7 @@ double SmallDegreeBias(int level, int degree) {
   return 0.0;
 }
 
+// The GetRng function provides a thread-local random number generator (RNG) using the Mersenne Twister algorithm (std::mt19937). It initializes the RNG with a seed from std::random_device, ensuring that each thread has its own independent RNG instance. This is important for generating random numbers in a multi-threaded environment without causing contention or sharing state between threads. The function returns a reference to the thread-local RNG, allowing it to be used for generating random values in various parts of the code.
 std::mt19937& GetRng() {
   static thread_local std::mt19937 rng(std::random_device{}());
   return rng;
