@@ -202,7 +202,8 @@ void AppendReportRow(int level, IopsState from_state, IopsState to_state,
   static std::mutex report_mu;
   static bool report_initialized = false;
   std::lock_guard<std::mutex> lg(report_mu);
-
+  
+  
   std::ios_base::openmode mode = std::ios::app;
   if (!report_initialized) {
     mode = std::ios::out | std::ios::trunc;
@@ -245,6 +246,7 @@ void AppendReportRow(int level, IopsState from_state, IopsState to_state,
 
 namespace adgMod {
 
+  // The GetAdaptiveLacWindowSize function retrieves the current window size for the Adaptive LAC algorithm. It uses an atomic integer (g_history_window) to store the window size, ensuring thread-safe access. The function returns the maximum of 1 and the current value of g_history_window, which is loaded with relaxed memory order. This ensures that the window size is always at least 1, preventing issues with empty or invalid windows during statistical calculations in the LAC algorithm.
 int GetAdaptiveLacWindowSize() {
   return std::max(1, g_history_window.load(std::memory_order_relaxed));
 }
