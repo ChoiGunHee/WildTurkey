@@ -145,6 +145,7 @@ double NextEpsilonGreedy(double& epsilon) {
   return current;
 }
 
+// The RandomDegree function generates a random degree value within a specified range (min_degree to max_degree) using a uniform integer distribution. It creates a std::uniform_int_distribution object with the given range and uses the thread-local random number generator (GetRng) to produce a random integer. This function is useful for selecting a random degree for the LAC algorithm during exploration phases of the Q-learning process.
 int RandomDegree(int min_degree, int max_degree) {
   std::uniform_int_distribution<int> dist(min_degree, max_degree);
   return dist(GetRng());
