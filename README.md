@@ -1,6 +1,6 @@
 
 # 🦃 Wild Turkey: Artifact for VLDB 2026 Submission
-
+ 
 This repository provides the code, scripts, and configurations necessary to reproduce the experimental results of our **VLDB 2026** submission:
 
 ## ✨ Rethinking Learned Index and LSM-tree Integration ✨
