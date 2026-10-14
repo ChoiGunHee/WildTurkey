@@ -151,6 +151,7 @@ int RandomDegree(int min_degree, int max_degree) {
   return dist(GetRng());
 }
 
+// The ArgMaxDegree function finds the degree with the maximum Q-value within a specified range (min_degree to max_degree). It takes an array of Q-values and iterates through the specified range, keeping track of the best Q-value and its corresponding degree. If a higher Q-value is found, it updates the best value and degree. The function returns the degree that has the highest Q-value, which is used for exploitation in the Q-learning process.
 int ArgMaxDegree(const std::array<double, kMaxLacDegree + 1>& q_values,
                  int min_degree, int max_degree) {
   double best = q_values[min_degree];
@@ -164,6 +165,7 @@ int ArgMaxDegree(const std::array<double, kMaxLacDegree + 1>& q_values,
   return best_deg;
 }
 
+// The MaxQValue function finds the maximum Q-value within a specified range of degrees (min_degree to max_degree) from an array of Q-values. It initializes the best value with the Q-value at min_degree and iterates through the range, updating the best value whenever a higher Q-value is found. The function returns the highest Q-value found in the specified range, which is used in the Q-learning update rule to estimate the expected future rewards for a given state-action pair.
 double MaxQValue(const std::array<double, kMaxLacDegree + 1>& q_values,
                  int min_degree, int max_degree) {
   double best = q_values[min_degree];
